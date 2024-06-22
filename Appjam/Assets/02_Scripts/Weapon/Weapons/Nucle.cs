@@ -7,6 +7,7 @@ public class Nucle : Weapon
 {
     [SerializeField] GameObject effect;
 
+
     [ContextMenu("Test")]
     public void Test()
     {
@@ -16,7 +17,7 @@ public class Nucle : Weapon
 
     public override void Attack(Transform target)
     {
-
+        this.GetComponent<AudioSource>().Play();
         var obj = Instantiate(effect, transform.position, Quaternion.identity);
         Vector3 dir = target.position - transform.position;
         obj.transform.position += dir * 0.5f;
