@@ -31,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     }
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Q)) last = true;
         if (last)
         {
             Instantiate(boss, centerPoint.position + new Vector3(0, 28, 0), Quaternion.identity);
