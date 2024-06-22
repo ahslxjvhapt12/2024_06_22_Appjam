@@ -12,6 +12,13 @@ public class PlayerMovement : MonoBehaviour
     private bool isHit = false;
     private bool isdeath = false;
 
+    private AudioSource audio;
+
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (isdeath) return;
@@ -31,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
             IsHit();
             Invoke("IsHit", hitDelay);
         }
+
+        audio.Play();
         HP -= damage;
         if (HP <= 0)
         {
