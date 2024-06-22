@@ -9,4 +9,14 @@ public class IntroUIManager : MonoBehaviour
     {
         SceneManager.LoadScene(str);
     }
+
+    public void Setting()
+    {
+
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
