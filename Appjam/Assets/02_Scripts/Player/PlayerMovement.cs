@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, IHitAble
 {
-
     [SerializeField] private float speed;
     [SerializeField] private float HP = 10f;
     [SerializeField] private float hitDelay = 1.5f;
