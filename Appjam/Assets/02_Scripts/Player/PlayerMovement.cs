@@ -6,9 +6,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour, IHitAble
 {
     [SerializeField] private float speed;
-    [SerializeField] private float HP = 10f;
+    [SerializeField] private float HP = 100f;
     [SerializeField] private float hitDelay = 1.5f;
 
+    Rigidbody2D rigid;
     Animator animator;
     SpriteRenderer spriteRenderer;
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour, IHitAble
 
     private void Awake()
     {
+        rigid = GetComponent<Rigidbody2D>();
         audio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour, IHitAble
         float v = Input.GetAxisRaw("Vertical");
 
         Vector3 moveVector = new Vector3(h, v, 0).normalized;
-        transform.position += moveVector * speed * Time.deltaTime;
+        rigid.velocity = moveVector * speed;
 
         animator.SetBool(walkHash, moveVector != Vector3.zero);
         if (h != 0)
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour, IHitAble
             IsHit();
             Invoke("IsHit", hitDelay);
         }
-        
+
         HP -= damage;
 
         if (HP <= 0)
