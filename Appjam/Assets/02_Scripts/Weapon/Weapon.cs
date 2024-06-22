@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
     protected Transform target;
     public Transform Target => target;
 
-    [field: SerializeField] public WeaponDataSO Data { get; protected set; }
+    [field: SerializeField] public WeaponDataSO DataSO { get; protected set; }
     public Guid WeaponGuid { get; protected set; }
 
     protected virtual void Awake()
@@ -15,8 +15,8 @@ public abstract class Weapon : MonoBehaviour
 
         WeaponGuid = Guid.NewGuid();
 
-        Data = Instantiate(Data);
-        Data.Init(this);
+        DataSO = Instantiate(DataSO);
+        DataSO.Init(this);
 
     }
 
@@ -27,10 +27,10 @@ public abstract class Weapon : MonoBehaviour
 
         RotateWeapon(target);
 
-        if ((!Data.isAttackCoolDown || isSkill) && target != null)
+        if ((!DataSO.isAttackCoolDown || isSkill) && target != null)
         {
-            if (!Data.isAttackCoolDown)
-                Data.SetCoolDown();
+            if (!DataSO.isAttackCoolDown)
+                DataSO.SetCoolDown();
 
             Attack(target);
 
