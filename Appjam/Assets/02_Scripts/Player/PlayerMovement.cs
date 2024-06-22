@@ -18,20 +18,14 @@ public class PlayerMovement : MonoBehaviour, IHitAble
     private bool isHit = false;
     private bool isdeath = false;
 
-<<<<<<< HEAD
     private AudioSource audio;
 
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
-=======
-    private void Awake()
-    {
-
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
->>>>>>> main
     }
 
     private void Update()
@@ -60,11 +54,11 @@ public class PlayerMovement : MonoBehaviour, IHitAble
             Invoke("IsHit", hitDelay);
         }
 
-        audio.Play();
+        //audio.Play();
         HP -= damage;
         if (HP <= 0)
         {
-            isdeath = true;
+            Die();
         }
     }
 
@@ -79,5 +73,6 @@ public class PlayerMovement : MonoBehaviour, IHitAble
     public void Die()
     {
         Debug.Log("»ç¸Á");
+        isdeath = true;
     }
 }
