@@ -1,10 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefab;
+    public GameObject enemyPrefab2;
+    public GameObject enemyPrefab3;
+    public GameObject boss;
 
     // 스폰할 적의 수
     public int numberOfEnemies = 10;
@@ -16,12 +18,25 @@ public class EnemySpawner : MonoBehaviour
     public float radius = 10f;
 
     // 스폰 주기
-    public float spawnInterval = 2f;
+    public float spawnInterval = 4f;
+
+    private int spawnCount = 10;
+    private int count = 0;
+    public bool last = false;
 
     void Start()
     {
         // 코루틴 시작
         StartCoroutine(SpawnEnemies());
+    }
+    void Update()
+    {
+        if (last)
+        {
+            Instantiate(boss, centerPoint.position + new Vector3(0, 28, 0), Quaternion.identity);
+            Destroy(gameObject);
+        }
+        numberOfEnemies = Mathf.Clamp(spawnCount, 10, 30);
     }
 
     IEnumerator SpawnEnemies()
@@ -38,19 +53,34 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemiesInCircle()
     {
+        if (spawnCount >= 50 || last == true)
+        {
+            last = true;
+            StopCoroutine(SpawnEnemies());
+            return;
+        }
+        spawnCount++;
+        Debug.Log(spawnCount);
         float angleStep = 360f / numberOfEnemies;
         float angle = 0f;
-
+        char first = spawnCount.ToString()[0];
+        int spawn = int.Parse(first.ToString());
         for (int i = 0; i < numberOfEnemies; i++)
         {
+            
             float enemyX = centerPoint.position.x + Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
             float enemyY = centerPoint.position.y + Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
 
             Vector2 enemyPosition = new Vector2(enemyX, enemyY);
 
-            Instantiate(enemyPrefab, enemyPosition, Quaternion.identity);
+            Instantiate(enemyPrefab[spawn], enemyPosition, Quaternion.identity);
 
             angle += angleStep;
+            if (spawnCount >= 10 && spawnCount / 2 == 0)
+            {
+                Instantiate(enemyPrefab2, enemyPosition, Quaternion.identity);
+                Instantiate(enemyPrefab3, enemyPosition, Quaternion.identity);
+            }
         }
     }
 }
