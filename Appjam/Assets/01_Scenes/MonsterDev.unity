@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 675670308}
   - component: {fileID: 675670309}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc563f77962e5343a62a62342b3f305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Speed: 2
+  m_Speed: 3
+  HP: 4
+  attackDamage: 10
 --- !u!50 &675670309
 Rigidbody2D:
   serializedVersion: 4
