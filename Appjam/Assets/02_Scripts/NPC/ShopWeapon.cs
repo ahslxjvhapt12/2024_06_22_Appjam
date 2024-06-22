@@ -24,7 +24,17 @@ public class ShopWeapon : MonoBehaviour
 
     public void Reroll()
     {
-        Shop.Instance.SetNPCText(StatManager.Instance.RerollStat());
+        if (Shop.Instance.money > price)
+        {
+            Shop.Instance.money -= price;
+            Shop.Instance.SetNPCText(StatManager.Instance.RerollStat());
+        }
+        else
+        {
+            GameManager.Instance.ShakeCamera(0.1f, 1);
+            Debug.Log("돈이 부족합니다");
+            Shop.Instance.SpawnWarnigTxt();
+        }
     }
 
 }
