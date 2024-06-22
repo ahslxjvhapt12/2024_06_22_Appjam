@@ -44,7 +44,7 @@ public class Monster : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if(attackDamage <= 0)return;
         if (collision.gameObject.CompareTag("Player"))
