@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nucle
   m_EditorClassIdentifier: 
   <AttackCoolDown>k__BackingField:
-    value: 0.3
+    value: 0.8
   <AttackRange>k__BackingField:
     value: 3
   <AttackDamage>k__BackingField:

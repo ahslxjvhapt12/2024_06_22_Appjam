@@ -1,5 +1,8 @@
-using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class DopamineManager : MonoBehaviour
 {
@@ -34,9 +37,10 @@ public class DopamineManager : MonoBehaviour
     private float dopamineAmount;
     public float DopamineAmount => dopamineAmount;
 
-    public Action OnChargeDopamine;
 
-    public void UpdateDopamine(float amount)
+    [SerializeField] Image screenImage;
+
+    public void EarnDopamine(float amount)
     {
 
         dopamineAmount += amount;
@@ -44,11 +48,36 @@ public class DopamineManager : MonoBehaviour
         if (dopamineAmount >= 100)
         {
 
-            OnChargeDopamine?.Invoke();
+            StatChange();
 
         }
 
     }
+    private void StatChange()
+    {
 
+        dopamineAmount = 0;
+
+        int amount = UnityEngine.Random.Range(10, 25);
+
+        GameManager.Instance.Movement.speedFactor += amount * 0.01f;
+
+        GameManager.Instance.DamageFactor += amount * 0.01f;
+
+        GameManager.Instance.Movement.HP += amount;
+
+        GameManager.Instance.CoolDownFactor += amount * 0.01f;
+        screenImage.enabled = true;
+
+        StartCoroutine(ScreenCO());
+    }
+
+    IEnumerator ScreenCO()
+    {
+
+        yield return new WaitForSeconds(10);
+        screenImage.enabled = false;
+
+    }
 
 }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using TMPro;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, IHitAble
@@ -11,6 +13,9 @@ public class PlayerMovement : MonoBehaviour, IHitAble
     [SerializeField] private float hitDelay = 0.3f;
 
     [SerializeField] HPBar hpBar;
+
+    [SerializeField] TextMeshProUGUI timeRecord;
+    [SerializeField] GameObject diePanel;
 
     Rigidbody2D rigid;
     Animator animator;
@@ -23,13 +28,15 @@ public class PlayerMovement : MonoBehaviour, IHitAble
 
     private AudioSource audio;
 
+    DateTime startTime;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         audio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
+        startTime = DateTime.Now;
     }
 
     private void Update()
@@ -79,7 +86,6 @@ public class PlayerMovement : MonoBehaviour, IHitAble
             if (audio != null)
                 audio.Play();
 
-            Debug.Log("hit");
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         }
         else GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
@@ -87,8 +93,14 @@ public class PlayerMovement : MonoBehaviour, IHitAble
 
     public void Die()
     {
-        Debug.Log("»ç¸Á");
         animator.SetTrigger("Die");
         isdeath = true;
+        timeRecord.text = (startTime - DateTime.Now).ToString();
+    }
+
+    public void DieEnd()
+    {
+        Destroy(gameObject);
+        diePanel.SetActive(true);
     }
 }

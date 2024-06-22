@@ -16,7 +16,7 @@ public class Impact : MonoBehaviour
     public void CastDamage()
     {
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, explosionRadius, targetLayer);
-
+        Debug.Log("cast");
         foreach (var item in cols)
         {
             if (item.TryGetComponent<IHitAble>(out var h))

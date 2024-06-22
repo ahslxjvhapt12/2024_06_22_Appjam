@@ -29,7 +29,6 @@ public class MonsterBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(1);
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerMovement>().Hit(damage);
