@@ -10,7 +10,13 @@ public class MonsterMovement : MonoBehaviour
     private SpriteRenderer m_SpriteRenderer;
 
     [SerializeField]
-    private float m_Speed = 2f;
+    private float m_Speed = 1f;
+    [SerializeField] 
+    private float HP = 1f;
+    [SerializeField] 
+    private float attackDamage = 1f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +26,6 @@ public class MonsterMovement : MonoBehaviour
         m_Target = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     { 
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
@@ -28,6 +33,8 @@ public class MonsterMovement : MonoBehaviour
         m_Rigidbody.MovePosition(m_Rigidbody.position + nextVec); // 적 이동
         m_Rigidbody.velocity = Vector2.zero; // 가속 방지
 
+
+        // 타겟 위치에 따라 방향 전환
         if (dirVec.x > 0)
         {
             m_SpriteRenderer.flipX = false;
@@ -36,9 +43,6 @@ public class MonsterMovement : MonoBehaviour
         {
             m_SpriteRenderer.flipX = true;
         }
-    }
-    private void Update()
-    {
         
     }
 }
