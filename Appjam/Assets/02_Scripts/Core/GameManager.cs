@@ -35,8 +35,11 @@ public class GameManager : MonoBehaviour
     private WeaponController weaponInven;
     public WeaponController WeaponInven => weaponInven;
 
+    private GameObject player;
+    public GameObject Player => player;
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player");
         weaponInven = FindAnyObjectByType<WeaponController>();
     }
 

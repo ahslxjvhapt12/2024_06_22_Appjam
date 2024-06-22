@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour
     {
         m_Rigidbody = this.GetComponent<Rigidbody2D>();
         m_SpriteRenderer = this.GetComponent<SpriteRenderer>();
-        m_Target = GameObject.FindWithTag("Player");
+        m_Target = GameManager.Instance.Player;
     }
 
     void FixedUpdate()
@@ -43,7 +43,8 @@ public class Monster : MonoBehaviour
 
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(attackDamage <= 0)return;
         if (collision.gameObject.CompareTag("Player"))
