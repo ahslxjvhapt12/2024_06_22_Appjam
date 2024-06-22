@@ -195,5 +195,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 7585681889478790908, guid: db746f5b81c76284eb4d6260dfe59882, type: 3}
   m_Speed: 1
-  HP: 100
+  HP: 1000
   attackDamage: 20

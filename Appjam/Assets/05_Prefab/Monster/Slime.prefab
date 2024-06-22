@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 7585681889478790908, guid: db746f5b81c76284eb4d6260dfe59882, type: 3}
   m_Speed: 3
-  HP: 10
+  HP: 4
   attackDamage: 5
 --- !u!50 &2159335220169453447
 Rigidbody2D:

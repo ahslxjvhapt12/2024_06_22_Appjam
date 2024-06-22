@@ -54,7 +54,7 @@ MonoBehaviour:
   enemyPrefab2: {fileID: 7464935585385646070, guid: 9e7766db2c7de4d41aff64f0bb5666c2, type: 3}
   enemyPrefab3: {fileID: 8051843148571483654, guid: 9b9c9ba3e369a864e90d48f86e787241, type: 3}
   boss: {fileID: 6992215068233900648, guid: c3b4898ac01c0844fb9ead2e9cdf4922, type: 3}
-  numberOfEnemies: 10
+  numberOfEnemies: 2
   centerPoint: {fileID: 0}
   radius: 20
   spawnInterval: 3
