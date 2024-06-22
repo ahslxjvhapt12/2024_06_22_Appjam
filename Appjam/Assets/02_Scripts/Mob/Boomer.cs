@@ -22,6 +22,7 @@ public class Boomer : MonoBehaviour
     }
     private void Boom()
     {
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }
