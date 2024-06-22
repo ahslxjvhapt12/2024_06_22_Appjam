@@ -18,6 +18,7 @@ public class Star : MonoBehaviour
         if (GetComponent<Image>().enabled == true && start)
         {
             GetComponent<AudioSource>().Play();
+            Debug.Log("DOODODO");
             start = false;
         }
         else if(GetComponent<Image>().enabled == false && !start)
