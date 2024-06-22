@@ -53,7 +53,6 @@ public class WeaponDataSO : ScriptableObject
     [field: SerializeField] public Stats AttackDamage { get; protected set; }
 
     private Weapon owner;
-    public float CoolDown = 0f;
 
     public bool isAttackCoolDown { get; protected set; }
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -33,6 +32,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private WeaponController weaponInven;
+    public WeaponController WeaponInven => weaponInven;
 
+    private void Awake()
+    {
+        weaponInven = FindAnyObjectByType<WeaponController>();
+    }
 
 }
