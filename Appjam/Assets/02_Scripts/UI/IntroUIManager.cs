@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,22 @@ using UnityEngine.SceneManagement;
 public class IntroUIManager : MonoBehaviour
 {
     [SerializeField] GameObject settingPanel;
-    public void GameStart(string str)
+
+    [SerializeField] GameObject brain;
+    [SerializeField] Canvas canvas;
+    public void GameStart()
     {
-        SceneManager.LoadScene(str);
+
+        canvas.gameObject.SetActive(false);
+
+        brain.transform.DOMove(Vector3.zero, 1f);
+        brain.transform.DOScale(40, 1f);
+        Invoke("LoadScene", 1f);
+    }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene("PlayScene");
     }
 
     public void Setting()
