@@ -46,6 +46,7 @@ public class Monster : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(attackDamage <= 0)return;
         if (collision.gameObject.CompareTag("Player"))
         {
             m_Target.transform.GetComponent<PlayerMovement>().Hit(attackDamage);
