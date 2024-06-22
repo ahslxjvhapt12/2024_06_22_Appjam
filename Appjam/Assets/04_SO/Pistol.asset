@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   <AttackCoolDown>k__BackingField:
-    value: 0.9
+    value: 0.75
   <AttackRange>k__BackingField:
     value: 10
   <AttackDamage>k__BackingField:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   <AttackCoolDown>k__BackingField:
-    value: 5
+    value: 1
   <AttackRange>k__BackingField:
     value: 8
   <AttackDamage>k__BackingField:
