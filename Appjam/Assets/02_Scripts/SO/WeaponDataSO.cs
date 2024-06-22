@@ -31,7 +31,8 @@ public class WeaponDataSO : ScriptableObject
     {
         isAttackCoolDown = true;
 
-        yield return new WaitForSeconds(AttackCoolDown.GetValue());
+        // 기존 공격속도 / (100 + 공격속도 증가 수치) * 100
+        yield return new WaitForSeconds(AttackCoolDown.GetValue() / (100 + GameManager.Instance.CoolDownFactor) * 100);
 
         isAttackCoolDown = false;
 

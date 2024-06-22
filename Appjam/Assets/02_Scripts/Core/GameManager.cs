@@ -1,3 +1,5 @@
+using Cinemachine;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,10 +39,30 @@ public class GameManager : MonoBehaviour
 
     private GameObject player;
     public GameObject Player => player;
+    private GameObject camTaget;
+
+    private PlayerMovement movement;
+    public PlayerMovement Movement => movement;
+
+    public float CoolDownFactor = 0;
+
+    public float DamageFactor = 0;
+
+
+
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        camTaget = GameObject.Find("CamTarget");
         weaponInven = FindAnyObjectByType<WeaponController>();
+        movement = FindAnyObjectByType<PlayerMovement>();
     }
+
+    public void ShakeCamera(float duration, float power)
+    {
+        camTaget.transform.DOShakePosition(duration, power);
+    }
+
+
 
 }

@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour, IHitAble
 {
+    public float speedFactor = 0;
     [SerializeField] private float speed;
-    [SerializeField] private float HP = 100f;
+    [SerializeField] public float HP = 100f;
     [SerializeField] private float hitDelay = 0.3f;
 
     [SerializeField] HPBar hpBar;
@@ -59,6 +60,8 @@ public class PlayerMovement : MonoBehaviour, IHitAble
         }
 
         HP -= damage;
+        HP = Mathf.Clamp(HP, 0f, 100f);
+
         hpBar.ChangeHPBar(HP, 100);
 
         if (HP <= 0)
