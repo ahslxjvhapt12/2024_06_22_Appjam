@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour, IHitAble
 {
     [SerializeField] private float speed;
     [SerializeField] private float HP = 100f;
-    [SerializeField] private float hitDelay = 1.5f;
+    [SerializeField] private float hitDelay = 0.3f;
+
+    [SerializeField] HPBar hpBar;
 
     Rigidbody2D rigid;
     Animator animator;
@@ -57,6 +59,7 @@ public class PlayerMovement : MonoBehaviour, IHitAble
         }
 
         HP -= damage;
+        hpBar.ChangeHPBar(HP, 100);
 
         if (HP <= 0)
         {
@@ -70,7 +73,9 @@ public class PlayerMovement : MonoBehaviour, IHitAble
 
         if (isHit)
         {
-            audio.Play();
+            if (audio != null)
+                audio.Play();
+
             Debug.Log("hit");
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         }
