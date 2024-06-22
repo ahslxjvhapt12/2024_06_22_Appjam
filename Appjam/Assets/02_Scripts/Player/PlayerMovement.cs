@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IHitAble
 {
 
     [SerializeField] private float speed;
@@ -57,11 +57,17 @@ public class PlayerMovement : MonoBehaviour
             isdeath = true;
         }
     }
+
     private void IsHit()
     {
         isHit = !isHit;
 
         if (isHit) GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
         else GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+    }
+
+    public void Die()
+    {
+        Debug.Log("»ç¸Á");
     }
 }
