@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 396018336527735357}
   - component: {fileID: 1463807853459466637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MagicStick
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7322208788213029846}
   - component: {fileID: 5542678986242587151}
   - component: {fileID: 5602789583324838757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2672730316329526816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pivot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8814189580189005092}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
