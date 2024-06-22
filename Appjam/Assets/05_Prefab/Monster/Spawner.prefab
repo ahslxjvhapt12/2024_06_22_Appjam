@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8985017031356024034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012840412367195472}
+  - component: {fileID: 4430854863920821468}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2012840412367195472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985017031356024034}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18184006, y: 1.4644922, z: -0.028358538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4430854863920821468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985017031356024034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02fc7f80d955f843865645670bae6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab:
+  - {fileID: 414047001339283568, guid: 6464f5cb488f41d40afd6e86c9324d8d, type: 3}
+  - {fileID: 414047001339283568, guid: 6464f5cb488f41d40afd6e86c9324d8d, type: 3}
+  - {fileID: 3200688104611968400, guid: 1244fe8405339dd45ad3fb28eda006d4, type: 3}
+  - {fileID: 9210968032537861787, guid: d80a09978d139664f8bd51059fdf54bf, type: 3}
+  - {fileID: 414047001339283568, guid: d902808a9eb58974c88f9e1c7e3de338, type: 3}
+  - {fileID: 8051843148571483654, guid: 9b9c9ba3e369a864e90d48f86e787241, type: 3}
+  enemyPrefab2: {fileID: 7464935585385646070, guid: 9e7766db2c7de4d41aff64f0bb5666c2, type: 3}
+  enemyPrefab3: {fileID: 8051843148571483654, guid: 9b9c9ba3e369a864e90d48f86e787241, type: 3}
+  boss: {fileID: 6992215068233900648, guid: c3b4898ac01c0844fb9ead2e9cdf4922, type: 3}
+  numberOfEnemies: 10
+  centerPoint: {fileID: 0}
+  radius: 20
+  spawnInterval: 3
+  last: 0
