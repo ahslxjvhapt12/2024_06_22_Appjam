@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -42,9 +43,9 @@ public class RangedMonster : MonoBehaviour
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
         if (distance <= attackRange)
         {
+            animator.SetBool("Attack", true);
             if (!isShoot)
             {
-                animator.SetBool("Attack", true);
                 Attack();
                 isShoot = true;
                 StartCoroutine("Shoot");
@@ -72,8 +73,10 @@ public class RangedMonster : MonoBehaviour
 
     private void Attack()
     {
-        GameObject Instance = Instantiate(bullet, this.transform) as GameObject;
+        float angle = Mathf.Atan2(transform.position.x - GameManager.Instance.Player.transform.position.x, transform.position.y - GameManager.Instance.Player.transform.position.y) * Mathf.Rad2Deg;
+        GameObject Instance = Instantiate(bullet, this.transform.position, Quaternion.Euler(0, 0, (angle + 180) * -1)) as GameObject;
         Instance.GetComponent<MonsterBullet>().Satting(attackDamage);
+        Instance.transform.parent = this.transform.parent;
 
         //bullet.gameObject.GetComponent<MonsterBullet>().Satting(attackDamage);
         //Instantiate(bullet, this.transform);
