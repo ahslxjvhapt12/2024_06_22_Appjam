@@ -39,7 +39,7 @@ public class RangedMonster : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (HP >= 0f)
+        if (HP <= 0f)
         {
             MobDie();
         }
