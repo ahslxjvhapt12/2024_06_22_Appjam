@@ -53,8 +53,6 @@ public class PlayerMovement : MonoBehaviour, IHitAble
             IsHit();
             Invoke("IsHit", hitDelay);
         }
-
-        //audio.Play();
         HP -= damage;
         if (HP <= 0)
         {
@@ -66,13 +64,19 @@ public class PlayerMovement : MonoBehaviour, IHitAble
     {
         isHit = !isHit;
 
-        if (isHit) GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        if (isHit)
+        {
+            audio.Play();
+            Debug.Log("hit");
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        }
         else GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
     public void Die()
     {
         Debug.Log("»ç¸Á");
+        animator.SetTrigger("Die");
         isdeath = true;
     }
 }
