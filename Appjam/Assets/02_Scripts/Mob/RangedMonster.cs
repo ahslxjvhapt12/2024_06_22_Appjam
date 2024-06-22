@@ -39,6 +39,10 @@ public class RangedMonster : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (HP >= 0f)
+        {
+            MobDie();
+        }
         float distance = Vector3.Distance(m_Target.transform.position, m_Rigidbody.transform.position);
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
         if (distance <= attackRange)
@@ -46,6 +50,7 @@ public class RangedMonster : MonoBehaviour
             animator.SetBool("Attack", true);
             if (!isShoot)
             {
+                animator.SetTrigger("AttackT");
                 Attack();
                 isShoot = true;
                 StartCoroutine("Shoot");
@@ -69,6 +74,10 @@ public class RangedMonster : MonoBehaviour
             m_SpriteRenderer.flipX = true;
         }
 
+    }
+    public void MobDie()
+    {
+        Destroy(gameObject);
     }
 
     private void Attack()

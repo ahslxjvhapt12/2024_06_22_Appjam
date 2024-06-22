@@ -25,6 +25,10 @@ public class Monster : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (HP >= 0f)
+        {
+            MobDie();
+        }
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
         Vector2 nextVec = dirVec.normalized * m_Speed * Time.fixedDeltaTime; // vector 정규화를 통해 일정한 속도 유지
         m_Rigidbody.MovePosition(m_Rigidbody.position + nextVec); // 적 이동
@@ -43,6 +47,10 @@ public class Monster : MonoBehaviour
 
     }
 
+    public void MobDie()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
