@@ -502,21 +502,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3406518998471300726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4852250746904391799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdcf45eaa98966a4991b3f3431cc76ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Speed: 2
-  HP: 100
-  attackDamage: 20
 --- !u!1 &4852250746904391799
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,10 +512,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2688461568590109327}
   - component: {fileID: 119968718521941227}
-  - component: {fileID: 3406518998471300726}
   - component: {fileID: 6566013117653342080}
   - component: {fileID: 6448851531730688380}
   - component: {fileID: 6566013117653342081}
+  - component: {fileID: 6566013117653342082}
   m_Layer: 6
   m_Name: KingSlime
   m_TagString: Untagged
@@ -570,7 +555,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.004202023, y: -0.17963234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -581,7 +566,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9375, y: 1}
+  m_Size: {x: 0.769423, y: 0.47265834}
   m_EdgeRadius: 0
 --- !u!50 &6566013117653342080
 Rigidbody2D:
@@ -631,6 +616,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6566013117653342082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852250746904391799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985a6e8b0a583b547aacf54a49e8f15c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Speed: 1
+  HP: 100
+  attackDamage: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
