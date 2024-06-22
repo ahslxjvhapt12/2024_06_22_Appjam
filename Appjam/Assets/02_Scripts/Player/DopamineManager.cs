@@ -39,6 +39,7 @@ public class DopamineManager : MonoBehaviour
 
     public int dopamineCount = 0;
 
+    public LayerMask enemyLayer;
 
     [SerializeField] Image screenImage;
     [SerializeField] Image slider;
@@ -57,6 +58,8 @@ public class DopamineManager : MonoBehaviour
         }
 
     }
+
+    private Collider2D[] enemyArr = new Collider2D[100];
     private void StatChange()
     {
         dopamineCount++;
@@ -72,6 +75,14 @@ public class DopamineManager : MonoBehaviour
 
         GameManager.Instance.CoolDownFactor += amount * 0.01f;
         screenImage.enabled = true;
+
+
+
+        int cnt = Physics2D.OverlapCircle(GameManager.Instance.Player.transform.position, 100f, new ContactFilter2D { layerMask = enemyLayer, useLayerMask = true, useTriggers = true }, enemyArr);
+        foreach (var item in enemyArr)
+        {
+            item.GetComponent<IHitAble>().Die();
+        }
 
         StartCoroutine(ScreenCO());
     }

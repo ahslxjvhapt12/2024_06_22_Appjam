@@ -1285,6 +1285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dopamineCount: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
   screenImage: {fileID: 1677048544}
   slider: {fileID: 1658769379}
 --- !u!1 &264054944
