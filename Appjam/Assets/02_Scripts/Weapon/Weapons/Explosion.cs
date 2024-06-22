@@ -25,6 +25,10 @@ public class Explosion : MonoBehaviour
             }
         }
     }
+    public void Sound()
+    {
+        this.GetComponent<AudioSource>().Play();
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()

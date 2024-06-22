@@ -31,6 +31,7 @@ public class Bomb : Weapon
             {
                 var obj = Instantiate(BombPrefab, transform.position, Quaternion.identity);
                 obj.transform.DOJump(target.transform.position, 1f, 1, 0.8f);
+                this.GetComponent<AudioSource>().Play();
             });
 
     }

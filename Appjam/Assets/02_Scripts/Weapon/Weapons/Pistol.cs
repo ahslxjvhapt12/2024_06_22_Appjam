@@ -13,7 +13,7 @@ public class Pistol : Weapon
 
     public override void Attack(Transform target)
     {
-
+        this.GetComponent<AudioSource>().Play();
         var blt = Instantiate(bullet, transform.position, Quaternion.identity);
         blt.transform.up = target.position - blt.transform.position;
 
