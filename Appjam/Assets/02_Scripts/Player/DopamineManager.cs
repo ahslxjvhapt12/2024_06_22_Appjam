@@ -76,8 +76,6 @@ public class DopamineManager : MonoBehaviour
         GameManager.Instance.CoolDownFactor += amount * 0.01f;
         screenImage.enabled = true;
 
-
-
         int cnt = Physics2D.OverlapCircle(GameManager.Instance.Player.transform.position, 100f, new ContactFilter2D { layerMask = enemyLayer, useLayerMask = true, useTriggers = true }, enemyArr);
         foreach (var item in enemyArr)
         {

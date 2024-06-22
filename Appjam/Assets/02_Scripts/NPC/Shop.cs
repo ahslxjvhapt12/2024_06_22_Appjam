@@ -28,6 +28,7 @@ public class Shop : MonoBehaviour
     public void SetMoney(float amount)
     {
         money += amount;
+        money = Mathf.Clamp(money, 0, 5237);
         moneyTxt.text = $"{money} ¿ø";
     }
 
