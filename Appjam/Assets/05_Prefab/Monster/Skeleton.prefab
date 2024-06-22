@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7771373839330487194}
   m_Layer: 6
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3457188686487749759, guid: 2d1d81003c7c6bb46a79fcff2df8678d, type: 3}
+  effect: {fileID: 7585681889478790908, guid: db746f5b81c76284eb4d6260dfe59882, type: 3}
   m_Speed: 2
-  HP: 2
+  HP: 5
   attackDamage: 5
   attackRange: 5
   attackDelay: 3
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 8685505143672279391}
   m_Layer: 0
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

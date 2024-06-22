@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2276210731541225851}
   m_Layer: 6
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcf45eaa98966a4991b3f3431cc76ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 7585681889478790908, guid: db746f5b81c76284eb4d6260dfe59882, type: 3}
   m_Speed: 3
-  HP: 30
+  HP: 10
   attackDamage: 5
 --- !u!50 &2159335220169453447
 Rigidbody2D:

@@ -6,9 +6,10 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class RangedMonster : MonoBehaviour
+public class RangedMonster : MonoBehaviour, IHitAble
 {
     public GameObject bullet;
+    [SerializeField] GameObject effect;
 
     private GameObject m_Target;
     private Rigidbody2D m_Rigidbody;
@@ -21,7 +22,7 @@ public class RangedMonster : MonoBehaviour
     private float HP = 1f;
     [SerializeField]
     private float attackDamage = 1f;
-    [SerializeField] 
+    [SerializeField]
     private float attackRange = 5f;
     [SerializeField]
     private float attackDelay = 1f;
@@ -41,7 +42,7 @@ public class RangedMonster : MonoBehaviour
     {
         if (HP <= 0f)
         {
-            MobDie();
+            Die();
         }
         float distance = Vector3.Distance(m_Target.transform.position, m_Rigidbody.transform.position);
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
@@ -75,10 +76,6 @@ public class RangedMonster : MonoBehaviour
         }
 
     }
-    public void MobDie()
-    {
-        Destroy(gameObject);
-    }
 
     private void Attack()
     {
@@ -94,6 +91,24 @@ public class RangedMonster : MonoBehaviour
     {
         yield return new WaitForSeconds(attackDelay);
         isShoot = false;
+    }
+
+    public void Hit(float Damage)
+    {
+        HP -= Damage;
+
+        var obj = Instantiate(effect, transform.position, Quaternion.identity);
+        obj.transform.position += (Vector3)UnityEngine.Random.insideUnitCircle / 2;
+        if (HP <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+        Shop.Instance.SetMoney(UnityEngine.Random.Range(10, 50));
     }
 }
 

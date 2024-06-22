@@ -1,12 +1,13 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class KingSlime : MonoBehaviour
+public class KingSlime : MonoBehaviour, IHitAble
 {
     private GameObject m_Target;
     private Rigidbody2D m_Rigidbody;
     private SpriteRenderer m_SpriteRenderer;
     private Animator m_Animator;
+    [SerializeField] GameObject effect;
 
     [SerializeField]
     private float m_Speed = 1f;
@@ -20,7 +21,7 @@ public class KingSlime : MonoBehaviour
 
     //skill_1
     private float speed;
-    private bool isJump = false; 
+    private bool isJump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class KingSlime : MonoBehaviour
     {
         if (currentHP <= 0f)
         {
-            MobDie();
+            Die();
         }
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
         Vector2 nextVec = dirVec.normalized * m_Speed * Time.fixedDeltaTime; // vector 정규화를 통해 일정한 속도 유지
@@ -72,10 +73,6 @@ public class KingSlime : MonoBehaviour
         //}
     }
 
-    public void MobDie()
-    {
-        Destroy(gameObject);
-    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -128,5 +125,24 @@ public class KingSlime : MonoBehaviour
         {
             collision.GetComponent<Rigidbody2D>().AddForce(-new Vector2(transform.position.x - collision.transform.position.x, transform.position.y - collision.transform.position.y) * 3);
         }
+    }
+
+    public void Hit(float Damage)
+    {
+        HP -= Damage;
+
+        var obj = Instantiate(effect, transform.position, Quaternion.identity);
+        obj.transform.position += (Vector3)Random.insideUnitCircle / 2;
+
+        if (HP <= 0)
+        {
+            Die();
+        }
+
+    }
+    public void Die()
+    {
+        Shop.Instance.SetMoney(1000);
+        Destroy(gameObject);
     }
 }

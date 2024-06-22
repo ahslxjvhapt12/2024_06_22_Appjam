@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Monster : MonoBehaviour, IHitAble
@@ -6,6 +7,7 @@ public class Monster : MonoBehaviour, IHitAble
     private Rigidbody2D m_Rigidbody;
     private SpriteRenderer m_SpriteRenderer;
 
+    [SerializeField] GameObject effect;
     [SerializeField]
     private float m_Speed = 1f;
     [SerializeField]
@@ -54,6 +56,9 @@ public class Monster : MonoBehaviour, IHitAble
     {
         HP -= Damage;
 
+        var obj = Instantiate(effect, transform.position, Quaternion.identity);
+        obj.transform.position += (Vector3)Random.insideUnitCircle / 2;
+
         if (HP <= 0f)
         {
             Die();
@@ -63,5 +68,6 @@ public class Monster : MonoBehaviour, IHitAble
     public void Die()
     {
         Destroy(gameObject);
+        Shop.Instance.SetMoney(UnityEngine.Random.Range(10, 50));
     }
 }

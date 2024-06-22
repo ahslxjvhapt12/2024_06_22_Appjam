@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 9043763983750240329}
   m_Layer: 6
   m_Name: Boomer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,8 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcf45eaa98966a4991b3f3431cc76ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 7585681889478790908, guid: db746f5b81c76284eb4d6260dfe59882, type: 3}
   m_Speed: 8
-  HP: 1
+  HP: 2
   attackDamage: 0
 --- !u!114 &2355795847642767789
 MonoBehaviour:
