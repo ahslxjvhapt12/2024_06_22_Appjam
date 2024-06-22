@@ -37,6 +37,8 @@ public class DopamineManager : MonoBehaviour
     private float dopamineAmount;
     public float DopamineAmount => dopamineAmount;
 
+    public int dopamineCount = 0;
+
 
     [SerializeField] Image screenImage;
 
@@ -55,7 +57,7 @@ public class DopamineManager : MonoBehaviour
     }
     private void StatChange()
     {
-
+        dopamineCount++;
         dopamineAmount = 0;
 
         int amount = UnityEngine.Random.Range(10, 25);
