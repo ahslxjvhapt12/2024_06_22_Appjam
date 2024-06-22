@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour, IHitAble
         {
             spriteRenderer.flipX = h < 0;
         }
+
     }
 
     public void Hit(float damage)
@@ -52,7 +53,9 @@ public class PlayerMovement : MonoBehaviour, IHitAble
             IsHit();
             Invoke("IsHit", hitDelay);
         }
+        
         HP -= damage;
+
         if (HP <= 0)
         {
             Die();
