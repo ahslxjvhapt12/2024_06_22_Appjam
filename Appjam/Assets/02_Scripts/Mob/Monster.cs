@@ -1,9 +1,8 @@
 using System.Collections;
-using UnityEditor.Rendering;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-public class MonsterMovement : MonoBehaviour
+public class Monster : MonoBehaviour
 {
     private GameObject m_Target;
     private Rigidbody2D m_Rigidbody;
@@ -11,6 +10,10 @@ public class MonsterMovement : MonoBehaviour
 
     [SerializeField]
     private float m_Speed = 1f;
+    [SerializeField]
+    private float HP = 1f;
+    [SerializeField]
+    private float attackDamage = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,7 @@ public class MonsterMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    { 
+    {
         Vector2 dirVec = m_Target.transform.position - m_Rigidbody.transform.position;
         Vector2 nextVec = dirVec.normalized * m_Speed * Time.fixedDeltaTime; // vector 정규화를 통해 일정한 속도 유지
         m_Rigidbody.MovePosition(m_Rigidbody.position + nextVec); // 적 이동
@@ -37,6 +40,14 @@ public class MonsterMovement : MonoBehaviour
         {
             m_SpriteRenderer.flipX = true;
         }
-        
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            m_Target.transform.GetComponent<PlayerMovement>().Hit(attackDamage);
+        }
     }
 }
