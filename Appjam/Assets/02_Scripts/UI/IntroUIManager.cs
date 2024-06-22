@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class IntroUIManager : MonoBehaviour
 {
+    [SerializeField] GameObject settingPanel;
     public void GameStart(string str)
     {
         SceneManager.LoadScene(str);
@@ -12,7 +13,7 @@ public class IntroUIManager : MonoBehaviour
 
     public void Setting()
     {
-
+        settingPanel.SetActive(true);
     }
 
     public void Exit()
