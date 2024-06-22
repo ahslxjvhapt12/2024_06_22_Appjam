@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject boss;
 
     // 스폰할 적의 수
-    public int numberOfEnemies = 10;
+    public int numberOfEnemies = 3;
 
     // 원의 중심
     public Transform centerPoint;
@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     // 스폰 주기
     public float spawnInterval = 4f;
 
-    private int spawnCount = 10;
+    private int spawnCount = 3;
     private int count = 0;
     public bool last = false;
 
@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(boss, centerPoint.position + new Vector3(0, 28, 0), Quaternion.identity);
             Destroy(gameObject);
         }
-        numberOfEnemies = Mathf.Clamp(spawnCount, 10, 30);
+        numberOfEnemies = Mathf.Clamp(spawnCount, 3, 30);
     }
 
     IEnumerator SpawnEnemies()
