@@ -10,31 +10,11 @@ public class Shop : MonoBehaviour
     public float money = 0;
 
     private static Shop instance;
-    public static Shop Instance
+    public static Shop Instance => instance;
+
+    private void Awake()
     {
-        get
-        {
-            if (instance != null)
-                return instance;
-
-            if (instance == null)
-            {
-                instance = FindObjectOfType<Shop>();
-            }
-
-            if (instance != null)
-            {
-                if (FindObjectsOfType<Shop>().Length > 1)
-                {
-                    Debug.LogError($"Multiple {typeof(Shop).Name} is Running!");
-                }
-
-                return instance;
-            }
-
-            Debug.LogError($"{typeof(Shop).Name} is null");
-            return null;
-        }
+        instance = this;
     }
 
 
@@ -43,6 +23,19 @@ public class Shop : MonoBehaviour
     [SerializeField] Transform tweenTargetPos;
     [SerializeField] TextMeshProUGUI NPCText;
     [SerializeField] Transform tweenStartPos;
+    [SerializeField] GameObject shop;
+
+    public void SetMoney(float amount)
+    {
+        money += amount;
+        moneyTxt.text = $"{money} ¿ø";
+    }
+
+    private void Start()
+    {
+        shop.SetActive(false);
+    }
+
     private void OnEnable()
     {
 
@@ -68,6 +61,6 @@ public class Shop : MonoBehaviour
 
     public void CloseShop()
     {
-        gameObject.SetActive(false);
+        shop.SetActive(false);
     }
 }

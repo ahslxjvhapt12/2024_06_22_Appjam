@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     private int spawnCount = 3;
     private int count = 0;
     public bool last = false;
-
+    int cursor = 0;
     void Start()
     {
         // 코루틴 시작
@@ -63,11 +63,14 @@ public class EnemySpawner : MonoBehaviour
         Debug.Log(spawnCount);
         float angleStep = 360f / numberOfEnemies;
         float angle = 0f;
-        char first = spawnCount.ToString()[0];
-        int spawn = int.Parse(first.ToString());
+        //char first = spawnCount.ToString()[0];
+        //int spawn = int.Parse(first.ToString());
+        int spawn = cursor++;
+        if (cursor >= enemyPrefab.Length)
+            cursor = 0;
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            
+
             float enemyX = centerPoint.position.x + Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
             float enemyY = centerPoint.position.y + Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
 

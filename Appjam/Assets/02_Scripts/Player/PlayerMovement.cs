@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour, IHitAble
     [SerializeField] HPBar hpBar;
 
     [SerializeField] TextMeshProUGUI timeRecord;
+    [SerializeField] TextMeshProUGUI dopamineCnt;
     [SerializeField] GameObject diePanel;
 
     Rigidbody2D rigid;
@@ -67,9 +69,9 @@ public class PlayerMovement : MonoBehaviour, IHitAble
         }
 
         HP -= damage;
-        HP = Mathf.Clamp(HP, 0f, 100f);
+        HP = Mathf.Clamp(HP, 0f, 150f);
 
-        hpBar.ChangeHPBar(HP, 100);
+        hpBar.ChangeHPBar(HP, 150f);
 
         if (HP <= 0)
         {
@@ -95,7 +97,9 @@ public class PlayerMovement : MonoBehaviour, IHitAble
     {
         animator.SetTrigger("Die");
         isdeath = true;
-        timeRecord.text = (startTime - DateTime.Now).ToString();
+        timeRecord.text = (DateTime.Now - startTime).ToString();
+        dopamineCnt.text = DopamineManager.Instance.dopamineCount.ToString();
+
     }
 
     public void DieEnd()

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2973065583665634824}
   m_Layer: 6
   m_Name: KingSlime
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985a6e8b0a583b547aacf54a49e8f15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 7585681889478790908, guid: db746f5b81c76284eb4d6260dfe59882, type: 3}
   m_Speed: 1
-  HP: 100
+  HP: 1000
   attackDamage: 20

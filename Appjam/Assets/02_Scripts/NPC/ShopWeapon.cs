@@ -11,7 +11,7 @@ public class ShopWeapon : MonoBehaviour
     {
         if (Shop.Instance.money > price)
         {
-            Shop.Instance.money -= price;
+            Shop.Instance.SetMoney(-price);
             GameManager.Instance.WeaponInven.AddWeapon(Instantiate(weaponObj));
         }
         else

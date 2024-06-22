@@ -18,4 +18,17 @@ public class Bullet : MonoBehaviour
         transform.position += transform.up * Speed.GetValue() * Time.deltaTime;
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            if (collision.TryGetComponent<IHitAble>(out var h))
+            {
+                h.Hit(Damage.GetValue());
+                Destroy(gameObject);
+            }
+        }
+    }
+
 }

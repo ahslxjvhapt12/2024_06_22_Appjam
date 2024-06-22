@@ -37,12 +37,16 @@ public class DopamineManager : MonoBehaviour
     private float dopamineAmount;
     public float DopamineAmount => dopamineAmount;
 
+    public int dopamineCount = 0;
+
 
     [SerializeField] Image screenImage;
+    [SerializeField] Image slider;
+
 
     public void EarnDopamine(float amount)
     {
-
+        slider.fillAmount = dopamineAmount / 100;
         dopamineAmount += amount;
 
         if (dopamineAmount >= 100)
@@ -55,7 +59,7 @@ public class DopamineManager : MonoBehaviour
     }
     private void StatChange()
     {
-
+        dopamineCount++;
         dopamineAmount = 0;
 
         int amount = UnityEngine.Random.Range(10, 25);

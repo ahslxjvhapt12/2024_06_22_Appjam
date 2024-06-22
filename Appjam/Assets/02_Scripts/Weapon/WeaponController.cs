@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    [SerializeField] Weapon defaultWeapon;
 
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private int maxCheckCount = 100;
@@ -15,6 +16,7 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         enemyArr = new Collider2D[maxCheckCount];
+        AddWeapon(Instantiate(defaultWeapon, transform.position, Quaternion.identity));
     }
 
     private void Update()
