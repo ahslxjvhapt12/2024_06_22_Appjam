@@ -109,6 +109,7 @@ public class RangedMonster : MonoBehaviour, IHitAble
     {
         Destroy(gameObject);
         Shop.Instance.SetMoney(UnityEngine.Random.Range(10, 50));
+        DopamineManager.Instance.EarnDopamine(5);
     }
 }
 

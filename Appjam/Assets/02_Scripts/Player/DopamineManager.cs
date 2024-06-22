@@ -41,10 +41,12 @@ public class DopamineManager : MonoBehaviour
 
 
     [SerializeField] Image screenImage;
+    [SerializeField] Image slider;
+
 
     public void EarnDopamine(float amount)
     {
-
+        slider.fillAmount = dopamineAmount / 100;
         dopamineAmount += amount;
 
         if (dopamineAmount >= 100)

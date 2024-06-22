@@ -144,5 +144,6 @@ public class KingSlime : MonoBehaviour, IHitAble
     {
         Shop.Instance.SetMoney(1000);
         Destroy(gameObject);
+        DopamineManager.Instance.EarnDopamine(100);
     }
 }
