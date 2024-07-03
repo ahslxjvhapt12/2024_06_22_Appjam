@@ -35,7 +35,8 @@ public class EnemySpawner : MonoBehaviour
         if (last)
         {
             Instantiate(boss, centerPoint.position + new Vector3(0, 28, 0), Quaternion.identity);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            last = false;
         }
         numberOfEnemies = Mathf.Clamp(spawnCount, 3, 30);
     }
@@ -54,11 +55,11 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemiesInCircle()
     {
-        if (spawnCount >= 50 || last == true)
+        if (spawnCount % 50 == 0)
         {
             last = true;
-            StopCoroutine(SpawnEnemies());
-            return;
+            //StopCoroutine(SpawnEnemies());
+            //return;
         }
         spawnCount++;
         Debug.Log(spawnCount);
@@ -80,7 +81,7 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyPrefab[spawn], enemyPosition, Quaternion.identity);
 
             angle += angleStep;
-            if (spawnCount >= 10 && spawnCount / 2 == 0)
+            if (spawnCount >= 10 && spawnCount % 2 == 0)
             {
                 Instantiate(enemyPrefab2, enemyPosition, Quaternion.identity);
                 Instantiate(enemyPrefab3, enemyPosition, Quaternion.identity);

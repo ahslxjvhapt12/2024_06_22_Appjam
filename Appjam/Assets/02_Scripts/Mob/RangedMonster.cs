@@ -1,9 +1,4 @@
-using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using UnityEditor;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class RangedMonster : MonoBehaviour, IHitAble

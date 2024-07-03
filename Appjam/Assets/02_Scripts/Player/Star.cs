@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Star : MonoBehaviour
 {
     private bool start = true;
+    public GameObject ga;
     public AudioSource AudioSource;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class Star : MonoBehaviour
         if (GetComponent<Image>().enabled == true && start)
         {
             GetComponent<AudioSource>().Play();
+            ga.SetActive(true);
             AudioSource.volume = 0.1f;
             Debug.Log("DOODODO");
             start = false;
@@ -26,6 +28,7 @@ public class Star : MonoBehaviour
         else if(GetComponent<Image>().enabled == false && !start)
         {
             AudioSource.volume = 0.5f;
+            ga.SetActive(false);
             start = true;
         }
     }
