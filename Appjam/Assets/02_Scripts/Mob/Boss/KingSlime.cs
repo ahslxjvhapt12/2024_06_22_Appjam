@@ -85,7 +85,7 @@ public class KingSlime : MonoBehaviour, IHitAble
 
     private void nextPatternPlay()
     {
-        int ran = Random.RandomRange(1, 2);
+        int ran = Random.Range(1, 2);
         Debug.Log(ran);
         switch (ran)
         {
